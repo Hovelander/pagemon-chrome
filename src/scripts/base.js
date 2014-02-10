@@ -511,26 +511,24 @@ function checkPage(url, callback, force_snapshot) {
       dataType: 'text',
       success: function(html, _, xhr) {
         var type = xhr.getResponseHeader('Content-type');
-        getPage(url, function(page) {
-          cleanAndHashPage(html, page.mode, page.regex, page.selector,
-                           function(crc) {
-            var settings = {};
+        cleanAndHashPage(html, page.mode, page.regex, page.selector,
+                        function(crc) {
+          var settings = {};
 
-            if (crc != page.crc) {
-              settings = {
-                updated: true,
-                crc: crc,
-                html: force_snapshot ? canonizePage(html, type) : page.html,
-                last_changed: Date.now()
-              }
-            } else {
-              settings = { html: canonizePage(html, type) };
+          if (crc != page.crc) {
+            settings = {
+              updated: true,
+              crc: crc,
+              html: force_snapshot ? canonizePage(html, type) : page.html,
+              last_changed: Date.now()
             }
+          } else {
+            settings = { html: canonizePage(html, type) };
+          }
 
-            settings.last_check = Date.now();
-            setPageSettings(url, settings, function() {
-              (callback || $.noop)(url);
-            });
+          settings.last_check = Date.now();
+          setPageSettings(url, settings, function() {
+            (callback || $.noop)(url);
           });
         });
       },
