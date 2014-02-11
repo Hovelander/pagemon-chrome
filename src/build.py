@@ -72,14 +72,6 @@ def main():
   print 'Copying files'
   shutil.copytree('.', 'build', ignore=stripDotfiles)
 
-  # Copy over minified libs.
-  print 'Applying minified libs'
-  for f in glob.glob('build/lib/*.js'):
-    os.remove(f)
-  for f in glob.glob('build/lib/min/*.js'):
-    shutil.copy(f, 'build/lib')
-  shutil.rmtree('build/lib/min')
-
   # Remove the build script.
   print 'Removing build script'
   os.remove('build/build.py')
@@ -100,6 +92,12 @@ def main():
       print 'Compiling JS:', f
       data = open(f).read()
       open(f, 'w').write(compileJS(data))
+
+  # Compile libs.
+  for f in glob.glob('build/lib/*.js'):
+    print 'Compiling JS libs:', f
+    data = open(f).read()
+    open(f, 'w').write(compileJS(data))
 
   # Compile HTML.
   for f in glob.glob('build/*.htm*'):
