@@ -239,7 +239,7 @@ function initializeColorPicker() {
   }
 
   var badge_color = getSetting(SETTINGS.badge_color) || [0, 180, 0, 255];
-  var badge_color = '#' + toHex(badge_color[0]) + 
+  var badge_color = '#' + toHex(badge_color[0]) +
                           toHex(badge_color[1]) +
                           toHex(badge_color[2]);
 
@@ -707,7 +707,7 @@ function initializePageCheck() {
     var url = findUrl(this);
     var progress_message = chrome.i18n.getMessage('check_in_progress') + '..';
 
-    timestamp.text(progress_message);  
+    timestamp.text(progress_message);
     BG.checkPage(url, function(url) {
       timestamp.trigger('time_updated');
       BG.updateBadge();

@@ -70,7 +70,7 @@ var DATABASE_STRUCTURE = "CREATE TABLE IF NOT EXISTS pages ( \
     str = encodeUTF8(str);
 
     var length = str.length;
-    var crc = 0xFFFFFFFF; 
+    var crc = 0xFFFFFFFF;
 
     for (var i = 0; i < length; i++) {
       crc = (crc >>> 8) ^ table[(crc & 0xFF) ^ str.charCodeAt(i)];
@@ -494,7 +494,7 @@ function cleanAndHashPage(html, mode, regex, selector, callback) {
 // info. If a change is detected, sets the updated flag on that page. Once the
 // check is done and all updates are applied, the callback is called with the
 // URL of the checked page.
-// 
+//
 // If the changes in the page did not result in a different CRC from the one
 // recorded (e.g. changes in numbers only, or in non-selected parts during
 // selective monitoring), or force_snapshot is checked, the html field of the

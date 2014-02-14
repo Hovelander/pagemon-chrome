@@ -222,7 +222,7 @@ function recurseHtmlDiff(opcodes, src, dst, src_hashed, dst_hashed, loose) {
           var new_item_hashed = hashToken(new_item, loose);
           src[src_index] = dst[dst_index] = new_item;
           src_hashed[src_index] = dst_hashed[dst_index] = new_item_hashed;
-          opcodes_recursed.push(['equal', 
+          opcodes_recursed.push(['equal',
                                  src_index, src_index + 1,
                                  dst_index, dst_index + 1]);
         } else {
