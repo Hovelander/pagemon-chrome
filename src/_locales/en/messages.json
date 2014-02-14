@@ -95,6 +95,10 @@
     "message": "View All Updates",
     "description": "The text of the button that opens all updated pages in new tabs."
   },
+  "hide_deletions": {
+    "message": "Hide Deletions",
+    "description": "The text for the checkbox that hides deletions by default."
+  },
   "check_all": {
     "message": "Check All Now",
     "description": "The text of the button that initiates a check of all pages."

@@ -468,6 +468,8 @@ function generateControls(url) {
                     <a class="pm_hide" href="#">%hide%</a> \
                   </div>';
 
+  var deletions_shown = !getSetting(SETTINGS.hide_deletions);
+
   var title = chrome.i18n.getMessage('diff_original_title');
   var original = chrome.i18n.getMessage('diff_original');
   var textize = chrome.i18n.getMessage('diff_textize');
@@ -478,14 +480,16 @@ function generateControls(url) {
                          .replace('%title%', title)
                          .replace('%original%', original)
                          .replace('%textize%', textize)
-                         .replace('%hide%', hide);
+                         .replace('%hide%', deletions_shown ? hide : show);
 
   var $controls = $(controls);
 
   // Deletion visibility switcher.
-  var deletions_shown = true;
+  if (!deletions_shown) {
+    $('del').hide();
+  }
   $('.pm_hide', $controls).click(function() {
-    $(this).text($(this).text() == show ? hide : show);
+    $(this).text(deletions_shown ? hide : show);
     $('del').toggle(deletions_shown = !deletions_shown);
     return false;
   });

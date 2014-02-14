@@ -19,7 +19,8 @@ var SETTINGS = {
   animations_disabled: 'animations_disabled',
   sort_by: 'sort_by',
   custom_sounds: 'custom_sounds',
-  view_all_action: 'view_all_action'
+  view_all_action: 'view_all_action',
+  hide_deletions: 'hide_deletions',
 };
 
 // Reference to the background page.

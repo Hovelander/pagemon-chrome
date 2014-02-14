@@ -222,6 +222,7 @@ function initializeGlobalControls() {
   initializeSoundPlayer();
   initializeSoundCreator();
   initializeViewAllSelector();
+  initializeHideDeletionsToggler();
   initializeExporter();
   initializeImporter();
   initializeGlobalChecker();
@@ -497,6 +498,16 @@ function initializeViewAllSelector() {
   $('#view_all select').change(function() {
     setSetting(SETTINGS.view_all_action, $(this).val());
   }).val(getSetting(SETTINGS.view_all_action) || 'diff');
+}
+
+// Initializes the Hide Deletions toggler. Updates its state from
+// SETTINGS.view_all_action and binds a handler for the change event to save the
+// newly selected setting.
+function initializeHideDeletionsToggler() {
+  $('#hide_deletions select').change(function() {
+    var enabled = ($(this).val() == 'enabled');
+    setSetting(SETTINGS.hide_deletions, enabled);
+  }).val(getSetting(SETTINGS.hide_deletions) ? 'enabled' : 'disabled');
 }
 
 // Initializes the Export Pages button and form. Binds a handler to the Export
