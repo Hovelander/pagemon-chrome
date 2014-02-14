@@ -21,6 +21,7 @@ var SETTINGS = {
   custom_sounds: 'custom_sounds',
   view_all_action: 'view_all_action',
   hide_deletions: 'hide_deletions',
+  show_full_page_diff: 'show_full_page_diff',
 };
 
 // Reference to the background page.

@@ -633,7 +633,7 @@ function initiateDiff(url) {
           var loose = (page.mode == 'text');
           applyDiff(url, page.html, canonizePage(new_html, type), type, loose);
           // Undo diff highlights outside of selector for selector-mode pages.
-          if (page.mode == 'selector' && page.selector) {
+          if (page.mode == 'selector' && page.selector && !getSetting(SETTINGS.show_full_page_diff)) {
             $('del,ins', page.selector).addClass('preserve');
             $(page.selector).each(function() {
               var parent = $(this).parent();
