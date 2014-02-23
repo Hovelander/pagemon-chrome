@@ -95,6 +95,10 @@
     "message": "查看所有更新",
     "description": "用于在新标签打开所有已更新页面的按钮文字。"
   },
+  "hide_deletions": {
+    "message": "隐藏删除部分",
+    "description": "The text for the checkbox that hides deletions by default."
+  },
   "check_all": {
     "message": "立即检查全部",
     "description": "用于开始检查所有页面的按钮文字。"
