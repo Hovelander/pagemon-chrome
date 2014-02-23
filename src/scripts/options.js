@@ -515,10 +515,10 @@ function initializeHideDeletionsToggler() {
 // SETTINGS.show_full_page_diff and binds a handler for the change event to save the
 // newly selected setting.
 function initializeShowFullPageDiff() {
-  $('#show_full_page_diff select').change(function() {
-    var enabled = ($(this).val() == 'enabled');
-    setSetting(SETTINGS.show_full_page_diff, enabled);
-  }).val(getSetting(SETTINGS.show_full_page_diff) ? 'enabled' : 'disabled');
+  $('#show_full_page_diff input:checkbox').change(function() {
+    var checked = ($(this).prop('checked'));
+    setSetting(SETTINGS.show_full_page_diff, checked);
+  }).prop('checked', getSetting(SETTINGS.show_full_page_diff));
 }
 
 // Initializes the Export Pages button and form. Binds a handler to the Export
