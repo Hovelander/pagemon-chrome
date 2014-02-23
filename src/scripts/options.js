@@ -505,10 +505,10 @@ function initializeViewAllSelector() {
 // SETTINGS.hide_deletions and binds a handler for the change event to save the
 // newly selected setting.
 function initializeHideDeletionsToggler() {
-  $('#hide_deletions select').change(function() {
-    var enabled = ($(this).val() == 'enabled');
-    setSetting(SETTINGS.hide_deletions, enabled);
-  }).val(getSetting(SETTINGS.hide_deletions) ? 'enabled' : 'disabled');
+  $('#hide_deletions input:checkbox').change(function() {
+    var checked = ($(this).prop('checked'));
+    setSetting(SETTINGS.hide_deletions, checked);
+  }).prop('checked', getSetting(SETTINGS.hide_deletions));
 }
 
 // Initializes the Show Full Page Diff toggler. Updates its state from
