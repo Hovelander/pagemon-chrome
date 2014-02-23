@@ -99,6 +99,10 @@
     "message": "隐藏删除部分",
     "description": "The text for the checkbox that hides deletions by default."
   },
+  "show_full_page_diff": {
+    "message": "Show Whole Diff in Selector Mode",
+    "description": "The label for the full page diff when in selector mode"
+  },
   "check_all": {
     "message": "立即检查全部",
     "description": "用于开始检查所有页面的按钮文字。"
