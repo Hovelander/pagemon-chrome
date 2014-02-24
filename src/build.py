@@ -22,6 +22,7 @@ DOCTYPE = '''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
 
 def compileJS(text):
   done = False
+  wait = 1
   while not done:
     import httplib, urllib, sys, time
 
@@ -36,11 +37,12 @@ def compileJS(text):
     response = conn.getresponse()
     data = response.read()
     conn.close()
-    if data.strip():
+    if data.strip() and not data.startswith('Error'):
       done = True
     else:
-      print '  Failed. Retrying in 1 second...'
-      time.sleep(1)
+      print '  Failed. Retrying in %d second(s)...' % wait
+      time.sleep(wait)
+      wait *= 2
 
   return data.replace('<!--', r'\<\!\-\-')
 
